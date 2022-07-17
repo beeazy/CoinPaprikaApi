@@ -19,7 +19,11 @@ class CoinRecyclerAdapter(val coinList: List<Coin>): RecyclerView.Adapter<CoinRe
     override fun onBindViewHolder(holder: CoinViewHolder, position: Int) {
         holder.binding.coinSymbol.text = coinList[position].symbol
         holder.binding.coinName.text = coinList[position].name
-        holder.binding.coinPrice.text = "Active: ${coinList[position].isActive.toString()}"
+        if (coinList[position].isActive) {
+            holder.binding.coinPrice.text = "Active"
+        } else {
+            holder.binding.coinPrice.text = "Not active"
+        }
         holder.binding.coinRank.text = coinList[position].rank
         holder.binding.coinType.text = coinList[position].type
     }
