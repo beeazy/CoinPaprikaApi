@@ -17,10 +17,10 @@ class GetCoinUseCase @Inject constructor(
         try {
             emit(Resource.Loading())
             val coins = repository.getCoins()
+            println(coins)
             emit(Resource.Success(coins))
         } catch (e: IOException) {
-            Log.e("GetCoinUseCase", e.message ?: "Error occured hereeee")
-            emit(Resource.Error("Network Error Occurred!"))
+            emit(Resource.Error("Error: ${e.message}"))
         }
     }
 }

@@ -28,6 +28,8 @@ class MainViewModel @Inject constructor(
             when(result) {
                 is Resource.Success -> {
                     _state.value = CoinListState(coins = result.data ?: emptyList())
+
+                    println("${_state.value}")
                 }
                 is Resource.Error -> {
                     _state.value = CoinListState(error = result.message ?: "Error occurred")

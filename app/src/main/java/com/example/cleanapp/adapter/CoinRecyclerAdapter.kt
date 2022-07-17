@@ -11,20 +11,19 @@ class CoinRecyclerAdapter(val coinList: List<Coin>): RecyclerView.Adapter<CoinRe
     class CoinViewHolder(val binding: CoincardBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.coincard, parent, false)
-        return CoinViewHolder(CoincardBinding.bind(v))
+
+        val binding = CoincardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CoinViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CoinViewHolder, position: Int) {
         holder.binding.coinSymbol.text = coinList[position].symbol
         holder.binding.coinName.text = coinList[position].name
-        holder.binding.coinPrice.text = coinList[position].isActive.toString()
-        holder.binding.coinRank.text = coinList[position].rank.toString()
+        holder.binding.coinPrice.text = "Active: ${coinList[position].isActive.toString()}"
+        holder.binding.coinRank.text = coinList[position].rank
         holder.binding.coinType.text = coinList[position].type
     }
 
-    override fun getItemCount(): Int {
-        return coinList.size
-    }
+    override fun getItemCount() = coinList.size
 
 }
