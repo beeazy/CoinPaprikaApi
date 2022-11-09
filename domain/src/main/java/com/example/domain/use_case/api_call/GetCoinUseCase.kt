@@ -1,6 +1,5 @@
 package com.example.domain.use_case.api_call
 
-import android.util.Log
 import com.example.domain.common.Resource
 import com.example.domain.model.Coin
 import com.example.domain.repository.CoinRepository
