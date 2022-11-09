@@ -13,14 +13,16 @@ project.afterEvaluate {
 
     (android.hasProperty('applicationVariants') ? android.'applicationVariants' : android.'libraryVariants').all { variant ->
         def variantName = variant.name
-        tasks.create(name: "${variantName.capitalize()}Coverage", type: JacocoReport, dependsOn: "testDebugUnitTest") {
+        tasks.create(name: "${variantName.capitalize()}Coverage", type: JacocoReport, dependsOn: testDebugUnitTest) {
 
             group = "Reporting"
             description = "Generate Jacoco coverage reports for the debug build."
+            println("Generating Jacoco coverage reports for the ${variantName} build.")
 
             reports {
                 html.enabled = true
                 xml.enabled = true
+                html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
             }
 
             def excludes = [
@@ -54,6 +56,8 @@ project.afterEvaluate {
             classDirectories.from = files([javaClasses, kotlinClasses])
             def sourceDirs = ["${project.projectDir}/src/main/java", "${project.projectDir}/src/main/kotlin",
                               "${project.projectDir}/src/debug/java", "${project.projectDir}/src/debug/kotlin"]
+
+            println('Execution data from:: ' + files(sourceDirs))
 
             sourceDirectories.from = files(sourceDirs)
 

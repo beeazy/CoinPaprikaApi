@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.cleanapp.R
 import com.example.cleanapp.adapter.CoinRecyclerAdapter
 import com.example.cleanapp.databinding.ActivityMainBinding
 import com.example.cleanapp.viewmodel.MainViewModel
