@@ -3,7 +3,6 @@ package com.example.cleanapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cleanapp.R
 import com.example.cleanapp.databinding.CoincardBinding
 import com.example.domain.model.Coin
 
