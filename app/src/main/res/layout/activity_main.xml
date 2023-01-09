@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={viewmodel}"
+        android:id="@+id/text_view_cat"
+        android:paddingVertical="15dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -17,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_cat" />
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -19,6 +19,8 @@ class MainViewModel @Inject constructor(
     private val _state = MutableLiveData<CoinListState>()
     val state: LiveData<CoinListState> = _state
 
+    val text = MutableLiveData<String>()
+
     init {
         getCoins()
     }
@@ -32,7 +34,7 @@ class MainViewModel @Inject constructor(
                     println("${_state.value}")
                 }
                 is Resource.Error -> {
-                    _state.value = CoinListState(error = result.message ?: "Error occurred")
+                    _state.value = CoinListState(error = "${ result.message } Try again")
                 }
                 is Resource.Loading -> {
                     _state.value = CoinListState(isLoading = true)
